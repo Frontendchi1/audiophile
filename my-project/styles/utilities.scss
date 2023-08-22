@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply font-sans bg-white-200 text-black-900 body-text;
+	}
+}
+
+@layer components {
+	// BUTTONS
+
+	.button-one,
+	.button-two,
+	.button-three,
+	.button-four {
+		@apply w-[160px] h-[48px] subtitle;
+	}
+
+	.button-one {
+		@apply bg-orange-600 text-white-100 hover:bg-orange-300;
+	}
+	.button-two {
+		@apply border hover:bg-black-900 hover:text-white-100;
+	}
+
+	.button-three {
+		@apply text-black-900 text-opacity-50 add-orange-arrow hover:text-orange-600 transform -translate-x-2;
+	}
+	.button-four {
+		@apply bg-black-900 hover:bg-black-600 hover:text-white-100;
+	}
+
+	// ICON BUTTONS
+	.hamburger-button {
+		background-image: url('/icon-hamburger.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		@apply w-8 h-8;
+	}
+
+	.shopping-cart-button {
+		// background: url('../public/icon-cart.svg') no-repeat center;
+		background-image: url('/icon-cart.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		@apply w-8 h-8;
+	}
+	.user-button {
+		@apply w-8 h-8;
+	}
+
+	// FORM INPUTS
+	.orange-ring {
+		@apply ring-orange-600;
+	}
+	.grey-ring {
+		@apply ring-black-200;
+	}
+
+	// TEXT INPUTS
+
+	.text-input {
+		label {
+			@apply text-[12px] font-bold mb-2;
+		}
+		input {
+			@apply px-6 py-3 rounded-lg text-sm font-bold placeholder-opacity-50 ring-1 grey-ring focus:orange-ring focus:ring-2 outline-none border-none bg-white-100;
+			caret-color: #d87d4a;
+		}
+	}
+	.input-error {
+		label {
+			@apply text-red-600;
+		}
+		input {
+			@apply ring-red-600 ring-2;
+		}
+	}
+
+	// RADIO INPUTS
+	.radio-group {
+		> label {
+			@apply text-[12px] font-bold mb-2;
+		}
+	}
+
+	.radio-input {
+		@apply flex items-center px-6 py-3 rounded-lg w-[309px] ring-1 grey-ring focus:orange-ring focus:ring-2 hover:orange-ring focus:outline-none;
+		.radio-label {
+			@apply font-bold text-sm ml-4;
+		}
+	}
+
+	.radio-button {
+		@apply w-5 h-5 rounded-full border border-black-200;
+		&.radio-checked {
+			@apply bg-orange-600 ring-inset ring-4 ring-white-200;
+		}
+	}
+
+	// NUMBER INPUTS
+	.number-input {
+		@apply w-full h-full bg-white-400 flex items-center px-2 justify-between 
+    focus:outline-none focus:ring focus:ring-orange-600;
+		button {
+			@apply text-black-900 text-opacity-50
+      hover:text-opacity-100 hover:text-orange-600
+      focus:outline-none disabled:hover:text-opacity-50 disabled:hover:text-black-900 p-2;
+		}
+		span {
+			@apply text-xs font-bold;
+		}
+	}
+}
+
+@layer utilities {
+	// TYPOGRAPHY
+
+	.subtitle {
+		@apply text-xs font-bold uppercase leading-[1.5625rem] tracking-[.0625rem];
+	}
+	.navlink {
+		@apply text-xs uppercase leading-[1.5625rem] tracking-[.125rem];
+	}
+	.overline-text {
+		@apply text-sm uppercase leading-[1.1875rem] tracking-[.625rem];
+	}
+
+	.body-text {
+		@apply text-base leading-6 font-medium;
+	}
+
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		@apply font-bold uppercase;
+	}
+
+	.h1 {
+		@apply text-6xl leading-[3.625rem] tracking-[.125rem];
+	}
+	.h2 {
+		@apply text-5xl leading-[2.75rem] tracking-[.09375rem];
+	}
+	.h3 {
+		@apply text-4xl leading-[2.25rem] tracking-[.071875rem];
+	}
+	.h4 {
+		@apply text-3xl leading-[2.375rem] tracking-[.125rem];
+	}
+	.h5 {
+		@apply text-2xl leading-[2.0625rem] tracking-[.10625rem];
+	}
+	.h6 {
+		@apply text-lg leading-[1.5rem] tracking-[.08125rem];
+	}
+
+	// USED FOR button-three CLASS
+	.add-orange-arrow {
+		&::after {
+			content: '';
+			background-image: url('../public/icon-arrow-right.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			transform: translateY(2px) translateX(8px);
+		}
+	}
+
+	.hero-bg-image {
+		background-image: url('/assets/home/mobile/image-header.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #252525;
+		height: 600px;
+		margin: 0 auto;
+		max-width: 500px;
+		@media (min-width: 768px) {
+			background-image: url('/assets/home/tablet/image-header.jpg');
+			height: 729px;
+			max-width: 800px;
+		}
+		@media (min-width: 1110px) {
+			background-image: url('/assets/home/desktop/image-hero.jpg');
+			max-width: 1440px;
+		}
+	}
+
+	.black-bg {
+		background-color: #191918;
+	}
+
+	.section2-bg-image {
+		background-image: url('/assets/home/mobile/image-speaker-zx7.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 320px;
+		@media (min-width: 768px) {
+			background-image: url('/assets/home/tablet/image-speaker-zx7.jpg');
+		}
+		@media (min-width: 1110px) {
+			background-image: url('/assets/home/desktop/image-speaker-zx7.jpg');
+		}
+	}
+
+	.background-circles {
+		background-image: url('/assets/home/desktop/pattern-circles.svg');
+		background-repeat: no-repeat;
+		background-size: 550px;
+		background-position: -115px -105px;
+		@media (min-width: 768px) {
+			background-size: 900px;
+			background-position: -105px -275px;
+		}
+		@media (min-width: 768px) {
+			background-size: 930px;
+			background-position: -155px -15px;
+		}
+	}
+
+	// LAYOUT UTILITIES
+
+	.content-container {
+		@apply mx-6 md:mx-10 lg:max-w-screen-lg lg:mx-auto;
+	}
+}
